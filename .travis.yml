@@ -16,7 +16,6 @@ script:
     - docker run huangjames/clean-youtube npm run test -- --coverage
 
 after_success:
-    - echo "REACT_APP_API_YT=$REACT_APP_API_KEY" > .env
     - docker build -t huangjames/clean-youtube .
     - docker tag huangjames/clean-youtube:latest registry.heroku.com/clean-youtube/web
 

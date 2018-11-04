@@ -4,7 +4,6 @@ COPY package.json .
 RUN npm install
 COPY . .
 RUN npm run-script build
-RUN rm -f .env
 
 FROM nginx
 COPY ./default.conf.template /etc/nginx/conf.d/default.conf.template
