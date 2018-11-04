@@ -3,6 +3,8 @@ WORKDIR '/app'
 COPY package.json .
 RUN npm install
 COPY . .
+ARG REACT_APP_API_YT
+ENV REACT_APP_API_YT $REACT_APP_API_YT
 RUN npm run-script build
 
 FROM nginx

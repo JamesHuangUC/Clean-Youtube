@@ -1,6 +1,12 @@
-FROM node:alpine
+FROM node:alpine as builder
 WORKDIR '/app'
 COPY package.json .
 RUN npm install
 COPY . .
-CMD ["npm", "run", "start"]
+ARG REACT_APP_API_YT
+ENV REACT_APP_API_YT $REACT_APP_API_YT
+RUN npm run-script build
+
+FROM nginx
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=builder /app/build /usr/share/nginx/html
