@@ -5,8 +5,4 @@ RUN npm install
 COPY . .
 ARG REACT_APP_API_YT
 ENV REACT_APP_API_YT $REACT_APP_API_YT
-RUN npm run-script build
-
-FROM nginx
-RUN rm -rf /usr/share/nginx/html/*
-COPY --from=builder /app/build /usr/share/nginx/html
+CMD ["npm", "run", "start"]
