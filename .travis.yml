@@ -24,7 +24,6 @@ deploy:
   script:
     docker push huangjames/clean-youtube;
     docker push registry.heroku.com/clean-youtube/web;
-    heroku config:set -a clean-youtube
     heroku container:release web --app clean-youtube
   on:
     branch: master
