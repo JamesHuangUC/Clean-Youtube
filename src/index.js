@@ -7,7 +7,7 @@ import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 import './index.css';
 
-// require('dotenv').config();
+require('dotenv').config();
 const API_YT = process.env.REACT_APP_API_YT;
 
 // Create a new component
