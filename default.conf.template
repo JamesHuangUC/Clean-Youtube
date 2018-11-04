@@ -1,9 +1,13 @@
 server {
-  listen $PORT default_server;
+  listen 80 default_server;
   server_name _;
   return 301 https://$host$request_uri;
+}
+
+server {
+  listen $PORT default_server;
   location / {
-    root   /usr/share/nginx/html;
-    index  index.html index.htm;
+    root /usr/share/nginx/html;
+    index index.html index.htm;
   }
 }
