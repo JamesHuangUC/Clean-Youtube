@@ -1,0 +1,30 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+    # install heroku cli
+    - wget -qO- https://toolbelt.heroku.com/install.sh |  sh
+    # login to docker and heroku registries
+    - echo "$ DOCKER_PASSWORD" |  docker login -u "$ DOCKER_USERNAME" --password-stdin
+    - echo "$ HEROKU_PASSWORD" |  docker login -u "$ HEROKU_USERNAME" --password-stdin registry.heroku.com
+    # build test image
+    - docker build -t huangjames/clean-youtube -f Dockerfile.dev .
+
+script:
+    - docker run huangjames/clean-youtube npm run test -- --coverage
+
+after_success:
+    - docker build -t huangjames/clean-youtube .
+    - docker tag huangjames/clean-youtube:latest registry.heroku.com/clean-youtube/web
+
+deploy:
+  provider: script
+  script:
+    docker push huangjames/clean-youtube;
+    docker push registry.heroku.com/clean-youtube/web;
+    heroku config:set -a clean-youtube
+    heroku container:release web --app clean-youtube
+  on:
+    branch: master
