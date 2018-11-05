@@ -1,0 +1,13 @@
+body {
+    background: black;
+}
+
+.list-group-item {
+    background-color: #000;
+    border: #373737;
+}
+
+.search-bar {
+    background-color: #182028;
+    color: #bdbdbd;
+}
