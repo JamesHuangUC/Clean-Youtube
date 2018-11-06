@@ -18,8 +18,8 @@ class App extends Component {
         this.state = {
             videos: [],
             selectedVideo: null,
-            checked: false,
-            stylePath: null
+            checked: true,
+            stylePath: process.env.PUBLIC_URL + '/dark_mode.css'
         };
 
         this.videoSearch('Surfboards');

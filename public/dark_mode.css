@@ -7,7 +7,29 @@ body {
     border: #373737;
 }
 
+.list-group-item:hover {
+    background-color: #282828;
+}
+
 .search-bar {
-    background-color: #182028;
     color: #bdbdbd;
+}
+
+.search-bar input {
+    color: #909090;
+    background-color: #202020;
+}
+
+.media-heading {
+    color: #cacaca;
+}
+
+.media-title {
+    color: #cacaca;
+    font-size: 20px;
+}
+
+.media-body {
+    color: #888888;
+    font-size: 15px;
 }
