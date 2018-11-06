@@ -34,11 +34,6 @@
     font-size: 15px;
 }
 
-.toggle-dark-mode {
-    float: right;
-    margin-right: 30px;
-}
-
 /* toggle darkmode button */
 .switch {
     position: relative;
